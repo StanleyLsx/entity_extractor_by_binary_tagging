@@ -50,6 +50,7 @@ if __name__ == '__main__':
         num_labels = len(configs.class_name)
         model = Model(hidden_size=768, num_labels=num_labels).to(device)
         model.load_state_dict(torch.load(os.path.join(configs.checkpoints_dir, 'best_model.pkl')))
+        model.eval()
         while True:
             logger.info('please input a sentence (enter [exit] to exit.)')
             sentence = input()
